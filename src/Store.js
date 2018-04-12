@@ -1,13 +1,18 @@
-import {applyMiddleware, createStore} from 'redux';
+import {compose, applyMiddleware, createStore} from 'redux';
 import rootReducer from './Reducers';
 import logger from 'redux-logger';
 import promises from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
+import {cacheEnhancer} from 'redux-cache'
 
 
 export default(initialState) => {
   return createStore(
     rootReducer,
-    applyMiddleware(logger, promises(), thunk)
+    compose(
+      applyMiddleware(logger, promises(), thunk),
+      cacheEnhancer()
+    )
+
   )
 }
