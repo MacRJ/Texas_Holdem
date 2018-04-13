@@ -1,4 +1,4 @@
-import {DEFAULT_KEY, generateCacheTTl} from 'redux-cache';
+import {DEFAULT_KEY, generateCacheTTL} from 'redux-cache';
 
 const initialState = {
   [DEFAULT_KEY]: null
@@ -8,16 +8,22 @@ const initialState = {
 export default(state = initialState, action) => {
 switch (action.type) {
   case 'GET_CARDS_FULFILLED': {
+    console.log('theaction', action.payload.data)
     return {
         ...state,
-        [DEFAULT_KEY]: generateCacheTTl(),
-        results: action.payload.data.cards
+        [DEFAULT_KEY]: generateCacheTTL(),
+        results: action.payload
     };
   }
   case 'ERROR_GETTING_CARDS': {
     return {
         ...state,
         results: action.payload.data
+    }
+  }
+  case 'GET_CARDS_CACHED': {
+    return {
+        ...state
     }
   }
     default: {
