@@ -1,9 +1,8 @@
 import axios from 'axios';
-// import Store from '../Store.js';
 import {checkCacheValid} from 'redux-cache';
 
 export const getCards = () => (dispatch, getState) => {
-  const isCacheValid = checkCacheValid(getState, 'cards2');
+  const isCacheValid = checkCacheValid(getState, 'cards');
   if (isCacheValid) {return null;}
 
   dispatch({

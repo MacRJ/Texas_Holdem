@@ -8,7 +8,6 @@ const initialState = {
 export default(state = initialState, action) => {
 switch (action.type) {
   case 'GET_CARDS_FULFILLED': {
-    console.log('theaction', action.payload.data)
     return {
         ...state,
         [DEFAULT_KEY]: generateCacheTTL(),
@@ -18,7 +17,7 @@ switch (action.type) {
   case 'ERROR_GETTING_CARDS': {
     return {
         ...state,
-        results: action.payload.data
+        results: action.payload
     }
   }
   case 'GET_CARDS_CACHED': {
