@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getCards} from './Actions/getDeck'
-// import Begingame from './components/beginGame'
+import {getCards} from './Actions/getDeck';
+import BeginGame from './Components/beginGame';
+
 
 class App extends Component {
 
@@ -11,10 +12,12 @@ componentDidMount() {
   this.props.getCards()
 }
 
+
   render() {
 
     return (
       <div className="App">
+        <BeginGame />
       </div>
     );
   }
