@@ -1,5 +1,14 @@
 import React from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle} from 'reactstrap';
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -19,18 +28,25 @@ export default class Example extends React.Component {
 
   render() {
     return (
-      <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret>
-          Dropdown
-        </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem header>Header</DropdownItem>
-          <DropdownItem disabled>Action</DropdownItem>
-          <DropdownItem>Another Action</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Another Action</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+      <div className="startGame">
+        <Card>
+          <CardImg top width="110%" height="110%" src="backOfCard.jpg" alt="Card Image" />
+          <CardBody>
+            <CardTitle>Texas Holdem</CardTitle>
+            <CardText>Start Game</CardText>
+          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <DropdownToggle caret>
+            Number of decks
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem header>1</DropdownItem>
+            <DropdownItem disabled>2</DropdownItem>
+            <DropdownItem>3</DropdownItem>
+          </DropdownMenu>
+          </Dropdown>
+        </CardBody>
+      </Card>
+      </div>
     );
   }
 }

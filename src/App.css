@@ -6,7 +6,7 @@
 
 .startGame {
     grid-column: 2/3;
-    grid-row: 3;
+    grid-row: 2;
     margin: auto;
     width: 50%;
     border: 3px solid black;
