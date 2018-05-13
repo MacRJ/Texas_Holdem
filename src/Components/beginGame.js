@@ -13,6 +13,7 @@ import { Dropdown,
 export default class Example extends React.Component {
   constructor(props) {
     super(props);
+    console.log('superProps', props)
 
     this.toggle = this.toggle.bind(this);
     this.state = {
@@ -27,6 +28,7 @@ export default class Example extends React.Component {
   }
 
   render() {
+    console.log('renderProps', this.props.beginGame)
     return (
       <div className="startGame">
         <Card>
@@ -39,8 +41,8 @@ export default class Example extends React.Component {
             Number of decks
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem header>1</DropdownItem>
-            <DropdownItem disabled>2</DropdownItem>
+            <DropdownItem onClick={() => this.props.beginGame()}>1</DropdownItem>
+            <DropdownItem >2</DropdownItem>
             <DropdownItem>3</DropdownItem>
           </DropdownMenu>
           </Dropdown>

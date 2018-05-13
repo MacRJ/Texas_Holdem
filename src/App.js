@@ -8,16 +8,40 @@ import BeginGame from './Components/beginGame';
 
 class App extends Component {
 
+constructor(props){
+  super(props);
+  this.state = {
+    beginGame: false,
+    }
+  }
+
+
 componentDidMount() {
   this.props.getCards()
 }
 
-
   render() {
 
+    var beginGameFunction = () => {
+      console.log("beginGameFunction Heard")
+      this.setState({
+        beginGame: true
+      })
+    }
+
+
+    let renderBeginGameChoice = () => {
+      console.log('thecurrent state ', this.state)
+      if(this.state.beginGame === false) {
+        return <BeginGame  beginGame= {beginGameFunction} />
+      }
+    }
+
     return (
-      <div className="App">
-        <BeginGame />
+      <div className="background">
+      <div className="grid">
+        {renderBeginGameChoice()}
+        </div>
       </div>
     );
   }

@@ -1,7 +1,11 @@
-.App {
+.background {
+  height: 100%;
+  background-color: #306339;
+}
+.grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 100px 300px auto;
+  grid-template-rows: 300px 300px 500px;
 }
 
 .startGame {
