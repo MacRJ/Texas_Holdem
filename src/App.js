@@ -38,10 +38,8 @@ componentDidMount() {
     }
 
     return (
-      <div className="background">
-      <div className="grid">
+      <div className="grid background">
         {renderBeginGameChoice()}
-        </div>
       </div>
     );
   }

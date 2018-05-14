@@ -1,18 +1,14 @@
-.background {
-  height: 100%;
-  background-color: #306339;
-}
+/* .background {
+
+  background-size: cover;
+} */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 300px 300px 500px;
+  grid-template-rows: 3ch auto minmax(100px, auto);
 }
 
-.startGame {
+.startGameMenu {
     grid-column: 2/3;
     grid-row: 2;
-    margin: auto;
-    width: 50%;
-    border: 3px solid black;
-    padding: 10px;
 }

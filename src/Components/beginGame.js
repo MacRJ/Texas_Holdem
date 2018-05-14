@@ -30,7 +30,7 @@ export default class Example extends React.Component {
   render() {
     console.log('renderProps', this.props.beginGame)
     return (
-      <div className="startGame">
+      <div className="startGameMenu">
         <Card>
           <CardImg top width="110%" height="110%" src="backOfCard.jpg" alt="Card Image" />
           <CardBody>
@@ -41,9 +41,9 @@ export default class Example extends React.Component {
             Number of decks
           </DropdownToggle>
           <DropdownMenu>
+          <DropdownItem>3</DropdownItem  >
             <DropdownItem onClick={() => this.props.beginGame()}>1</DropdownItem>
             <DropdownItem >2</DropdownItem>
-            <DropdownItem>3</DropdownItem>
           </DropdownMenu>
           </Dropdown>
         </CardBody>
