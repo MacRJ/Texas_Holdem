@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {checkCacheValid} from 'redux-cache';
 
-export const getCards = () => (dispatch, getState) => {
+export const getCards = (numberOfDecks) => (dispatch, getState) => {
   const isCacheValid = checkCacheValid(getState, 'cards');
   if (isCacheValid) {return null;}
 
@@ -9,7 +9,7 @@ export const getCards = () => (dispatch, getState) => {
     type: 'GET_CARDS_CACHED'
   });
 
-  axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=2')
+  axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=' + numberOfDecks)
   .then((deckObject) => {
     var deckId = deckObject.data.deck_id;
       test(deckId)

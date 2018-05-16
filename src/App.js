@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getCards} from './Actions/getDeck';
 import BeginGame from './Components/beginGame';
+import GameTable from './Components/GameTable';
 
 
 class App extends Component {
@@ -16,14 +17,10 @@ constructor(props){
   }
 
 
-componentDidMount() {
-  this.props.getCards()
-}
-
   render() {
 
-    var beginGameFunction = () => {
-      console.log("beginGameFunction Heard")
+    var beginGameFunction = (numberOfDecks) => {
+      this.props.getCards(numberOfDecks)
       this.setState({
         beginGame: true
       })
@@ -31,9 +28,10 @@ componentDidMount() {
 
 
     let renderBeginGameChoice = () => {
-      console.log('thecurrent state ', this.state)
       if(this.state.beginGame === false) {
-        return <BeginGame  beginGame= {beginGameFunction} />
+        return <BeginGame beginGame= {beginGameFunction} />
+      } else {
+        <GameTable />
       }
     }
 

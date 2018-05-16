@@ -1,11 +1,8 @@
-/* .background {
 
-  background-size: cover;
-} */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 3ch auto minmax(100px, auto);
+  grid-template-rows: 15ch auto minmax(100px, auto);
 }
 
 .startGameMenu {
