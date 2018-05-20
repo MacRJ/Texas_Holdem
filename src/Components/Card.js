@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-class Card extend Component {
+class Card extends Component {
 
   render() {
     return (

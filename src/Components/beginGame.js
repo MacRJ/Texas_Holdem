@@ -15,16 +15,23 @@ export default class Example extends React.Component {
     super(props);
     console.log('superProps', props)
 
-    this.toggle = this.toggle.bind(this);
+    this.toggleDecks = this.toggleDecks.bind(this);
+    this.togglePlayers = this.togglePlayers.bind(this);
     this.state = {
-      dropdownOpen: false
+      decksdropdown: false,
+      playersDropdown : false
     };
   }
 
-  toggle() {
+  toggleDecks() {
+      this.setState({
+        decksdropdown: !this.state.decksdropdown
+      });
+  }
+  togglePlayers(){
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen
-    });
+      playersDropdown: !this.state.playersDropdown
+    })
   }
 
   render() {
@@ -36,7 +43,7 @@ export default class Example extends React.Component {
           <CardBody>
             <CardTitle>Texas Holdem</CardTitle>
             <CardText>Start Game</CardText>
-          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <Dropdown isOpen={this.state.decksdropdown} toggle={this.toggleDecks}>
           <DropdownToggle caret>
             Number of decks
           </DropdownToggle>
@@ -44,6 +51,17 @@ export default class Example extends React.Component {
           <DropdownItem onClick={() => this.props.beginGame(1)}>1</DropdownItem  >
             <DropdownItem onClick={() => this.props.beginGame(2)}>2</DropdownItem>
             <DropdownItem onClick={() => this.props.beginGame(3)}>3</DropdownItem>
+          </DropdownMenu>
+          </Dropdown>
+          <br/>
+          <Dropdown isOpen={this.state.playersDropdown} toggle={this.togglePlayers}>
+          <DropdownToggle caret>
+            Number of Players
+          </DropdownToggle>
+          <DropdownMenu>
+          <DropdownItem onClick={() => this.props.selectNumberOfPlayers(1)}>1</DropdownItem  >
+            <DropdownItem onClick={() => this.props.selectNumberOfPlayers(2)}>2</DropdownItem>
+            <DropdownItem onClick={() => this.props.selectNumberOfPlayers(3)}>3</DropdownItem>
           </DropdownMenu>
           </Dropdown>
         </CardBody>

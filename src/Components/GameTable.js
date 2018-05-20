@@ -3,22 +3,31 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Card from './Card';
 
-const GameTable = () => {
+class GameTable extends Component {
 
-let generateCardDeck = () => {
-  return this.props.cards.map((card, i) => {
-    return <Card key={i} />
-  })
-}
-  return (
-    {generateCardDeck}
-  )
+render() {
+  var generateCardDeck = () => {
+    console.log('generateCardDeck', this.props)
+     return this.props.cardDeck.map((card, i) => {
+      return <Card key={i}/>
+    })
+  }
+    return (
+      <div className="grid">
+        <div className="cardDeck">
+          {generateCardDeck()}
+        </div>
+      </div>
+    )
+  }
 }
 
 
 function mapStateToProps(state, props) {
+  console.log('GameTable State', state)
+  console.log('GameTable props', props)
   return {
-    cards : state.cards;
+    cardDeck : state.cards.results
   }
 }
 

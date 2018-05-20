@@ -13,6 +13,7 @@ constructor(props){
   super(props);
   this.state = {
     beginGame: false,
+    numberOfPlayers : null
     }
   }
 
@@ -20,18 +21,26 @@ constructor(props){
   render() {
 
     var beginGameFunction = (numberOfDecks) => {
+      console.log('begingame ', numberOfDecks)
       this.props.getCards(numberOfDecks)
+    }
+    var selectNumberOfPlayers = (numberOfPlayers) => {
+      console.log('numberOfPlayers ', numberOfPlayers)
       this.setState({
-        beginGame: true
-      })
+        numberOfPlayers: numberOfPlayers,
+        beginGame : true
+      });
     }
 
 
-    let renderBeginGameChoice = () => {
+    var renderBeginGameChoice = () => {
       if(this.state.beginGame === false) {
-        return <BeginGame beginGame= {beginGameFunction} />
+        return <BeginGame
+          beginGame= {beginGameFunction}
+          selectNumberOfPlayers = {selectNumberOfPlayers}
+          />
       } else {
-        <GameTable />
+        return <GameTable numberOfPlayers = {this.state.numberOfPlayers}/>
       }
     }
 
