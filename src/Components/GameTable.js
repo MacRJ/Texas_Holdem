@@ -2,20 +2,30 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Card from './Card';
+import Player from './Player';
 
 class GameTable extends Component {
 
 render() {
+
   var generateCardDeck = () => {
     console.log('generateCardDeck', this.props)
      return this.props.cardDeck.map((card, i) => {
-      return <Card key={i}/>
+      return <Card key={i} card={this.props.cardDeck[i]}/>
+    })
+  }
+  var generatePlayers = () => {
+    return this.props.numberOfPlayers.map((player, i) => {
+      return <Player key={i} />
     })
   }
     return (
-      <div className="grid">
+      <div>
         <div className="cardDeck">
           {generateCardDeck()}
+        </div>
+        <div>
+          {generatePlayers()}
         </div>
       </div>
     )

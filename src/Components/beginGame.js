@@ -48,9 +48,9 @@ export default class Example extends React.Component {
             Number of decks
           </DropdownToggle>
           <DropdownMenu>
-          <DropdownItem onClick={() => this.props.beginGame(1)}>1</DropdownItem  >
-            <DropdownItem onClick={() => this.props.beginGame(2)}>2</DropdownItem>
-            <DropdownItem onClick={() => this.props.beginGame(3)}>3</DropdownItem>
+          <DropdownItem onClick={() => this.props.selectNumberOfDecks(1)}>1</DropdownItem  >
+            <DropdownItem onClick={() => this.props.selectNumberOfDecks(2)}>2</DropdownItem>
+            <DropdownItem onClick={() => this.props.selectNumberOfDecks(3)}>3</DropdownItem>
           </DropdownMenu>
           </Dropdown>
           <br/>

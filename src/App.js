@@ -20,7 +20,7 @@ constructor(props){
 
   render() {
 
-    var beginGameFunction = (numberOfDecks) => {
+    var selectNumberOfDecksFunction = (numberOfDecks) => {
       console.log('begingame ', numberOfDecks)
       this.props.getCards(numberOfDecks)
     }
@@ -36,7 +36,7 @@ constructor(props){
     var renderBeginGameChoice = () => {
       if(this.state.beginGame === false) {
         return <BeginGame
-          beginGame= {beginGameFunction}
+          selectNumberOfDecks= {selectNumberOfDecksFunction}
           selectNumberOfPlayers = {selectNumberOfPlayers}
           />
       } else {
@@ -45,15 +45,12 @@ constructor(props){
     }
 
     return (
-      <div className="grid background">
+      <div className="grid">
         {renderBeginGameChoice()}
       </div>
     );
   }
 }
-
-
-
 
 function mapStateToProps(state, props) {
   console.log('state',state)

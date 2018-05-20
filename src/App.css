@@ -1,11 +1,29 @@
 
 .grid {
+  background-color: green;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 15ch auto minmax(100px, auto);
+  grid-template-rows: repeat(10, 100px)
 }
 
 .startGameMenu {
     grid-column: 2/3;
     grid-row: 2;
+}
+
+.cardDeck {
+    grid-column: 2/3;
+    grid-row: 2;
+    position: relative;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* box-shadow: 5px; */
+}
+.cardImage {
+  grid-column: 2/3;
+  grid-row: 2;
+  position: absolute;
+  width: 100px;
+  height: 150px;
+
 }

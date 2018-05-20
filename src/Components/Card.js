@@ -1,15 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
-class Card extends Component {
+const Card = () => {
 
-  render() {
     return (
-      <div>
-      card
+      // <div className="grid">
+        // <div className="cardDeck">
+      <div className="cardImage">
+        <img src="backOfCard.jpg"  height="150" width="100"/>
       </div>
+        // </div>
     )
-  }
 }
 
 export default Card;

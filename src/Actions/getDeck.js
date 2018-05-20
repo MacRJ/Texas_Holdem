@@ -24,7 +24,8 @@ export const getCards = (numberOfDecks) => (dispatch, getState) => {
   })
 
   function test(deckId) {
-    axios.get('https://deckofcardsapi.com/api/deck/'+ deckId + '/draw/?count=2')
+    var cardCount = numberOfDecks * 52
+    axios.get('https://deckofcardsapi.com/api/deck/'+ deckId + '/draw/?count=' + cardCount)
     .then((cards) => {
       console.log("cards", cards)
       if(cards !== undefined) {
