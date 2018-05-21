@@ -9,15 +9,14 @@ class GameTable extends Component {
 render() {
 
   var generateCardDeck = () => {
-    console.log('generateCardDeck', this.props)
      return this.props.cardDeck.map((card, i) => {
       return <Card key={i} card={this.props.cardDeck[i]}/>
     })
   }
   var generatePlayers = () => {
-    return this.props.numberOfPlayers.map((player, i) => {
-      return <Player key={i} />
-    })
+    let players = this.props.players;
+    console.log("testing Props", this.props.numberOfPlayers)
+
   }
     return (
       <div>
@@ -37,8 +36,15 @@ function mapStateToProps(state, props) {
   console.log('GameTable State', state)
   console.log('GameTable props', props)
   return {
-    cardDeck : state.cards.results
+    cardDeck : state.cards.results,
+    players : state.players
   }
 }
 
-export default connect(mapStateToProps,null)(GameTable);
+function mapDispatchToProps(dispatch) {
+  return {
+    addPlayer: bindActionCreators(null, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameTable);

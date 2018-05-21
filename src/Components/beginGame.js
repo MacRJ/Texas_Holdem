@@ -7,8 +7,7 @@ import { Dropdown,
   CardImg,
   CardText,
   CardBody,
-  CardTitle,
-  CardSubtitle} from 'reactstrap';
+  CardTitle} from 'reactstrap';
 
 export default class Example extends React.Component {
   constructor(props) {

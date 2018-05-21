@@ -7,7 +7,7 @@ const Card = () => {
       // <div className="grid">
         // <div className="cardDeck">
       <div className="cardImage">
-        <img src="backOfCard.jpg"  height="150" width="100"/>
+        <img src="backOfCard.jpg"  height="150" width="100" alt="card"/>
       </div>
         // </div>
     )
