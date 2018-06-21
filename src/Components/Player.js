@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const Player = () => {
+const Player = (props) => {
   return (
     <div>
-    "Hello I'm a Player"
+      {props.playerName}
     </div>
   )
 }

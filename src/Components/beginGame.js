@@ -12,10 +12,10 @@ import { Dropdown,
 export default class Example extends React.Component {
   constructor(props) {
     super(props);
-    console.log('superProps', props)
 
     this.toggleDecks = this.toggleDecks.bind(this);
     this.togglePlayers = this.togglePlayers.bind(this);
+
     this.state = {
       decksdropdown: false,
       playersDropdown : false
@@ -38,7 +38,7 @@ export default class Example extends React.Component {
     return (
       <div className="startGameMenu">
         <Card>
-          <CardImg top width="110%" height="110%" src="backOfCard.jpg" alt="Card Image" />
+          <CardImg top width="50%" height="50%" src="backOfCard.jpg" alt="Card Image" />
           <CardBody>
             <CardTitle>Texas Holdem</CardTitle>
             <CardText>Start Game</CardText>

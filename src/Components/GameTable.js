@@ -1,25 +1,29 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+// import {bindActionCreators} from 'redux';
 import Card from './Card';
 import Player from './Player';
 
 class GameTable extends Component {
 
 render() {
+var {cardDeck, numberOfPlayers, players} = this.props;
 
   var generateCardDeck = () => {
-     return this.props.cardDeck.map((card, i) => {
-      return <Card key={i} card={this.props.cardDeck[i]}/>
+     return cardDeck.map((card, i) => {
+      return <Card key={i} card={cardDeck[i]}/>
     })
   }
   var generatePlayers = () => {
-    let players = this.props.players;
-    console.log("testing Props", this.props.numberOfPlayers)
-
+    let playersVar = players[0];
+    console.log('PlayerVar', playersVar);
+    for(var i = 0; i = numberOfPlayers; i++) {
+      console.log('i', i)
+      return <Player key={i} playerName = {playersVar[i]} />
+    }
   }
     return (
-      <div>
+      <div className="grid">
         <div className="cardDeck">
           {generateCardDeck()}
         </div>
@@ -41,10 +45,10 @@ function mapStateToProps(state, props) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    addPlayer: bindActionCreators(null, dispatch)
-  }
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     addPlayer: bindActionCreators(null, dispatch)
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GameTable);
+export default connect(mapStateToProps, null)(GameTable);
