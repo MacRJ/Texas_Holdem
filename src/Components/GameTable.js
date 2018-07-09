@@ -7,7 +7,7 @@ import Player from './Player';
 class GameTable extends Component {
 
 render() {
-var {cardDeck, numberOfPlayers, players} = this.props;
+var {cardDeck, numberOfPlayers, players} = this.newMethod();
 
   var generateCardDeck = () => {
      return cardDeck.map((card, i) => {
@@ -32,6 +32,10 @@ var {cardDeck, numberOfPlayers, players} = this.props;
         </div>
       </div>
     )
+  }
+
+  newMethod() {
+    return this.props;
   }
 }
 

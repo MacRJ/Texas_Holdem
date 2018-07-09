@@ -3,6 +3,7 @@ import './App.css';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getCards} from './Actions/getDeck';
+import {debug} from './Actions/getDeck';
 import BeginGame from './Components/beginGame';
 import GameTable from './Components/GameTable';
 
@@ -13,7 +14,8 @@ constructor(props){
   super(props);
   this.state = {
     beginGame: false,
-    numberOfPlayers : null
+    numberOfPlayers : null,
+    debugMode : false
     }
   }
 
@@ -34,12 +36,16 @@ constructor(props){
 
 
     var renderBeginGameChoice = () => {
-      if(this.state.beginGame === false) {
+      if(this.state.beginGame === false || this.state.debugMode === false) {
         return <BeginGame
           selectNumberOfDecks= {selectNumberOfDecksFunction}
           selectNumberOfPlayers = {selectNumberOfPlayers}
           />
-      } else {
+        
+        } else if (this.state.debugMode === true) {
+        this.props.debug();
+
+        } else {
         return <GameTable numberOfPlayers = {this.state.numberOfPlayers}/>
       }
     }
@@ -64,7 +70,8 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    getCards: bindActionCreators(getCards, dispatch)
+    getCards: bindActionCreators(getCards, dispatch),
+    debug: bindActionCreators(debug, dispatch)
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);

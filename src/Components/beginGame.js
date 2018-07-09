@@ -38,7 +38,7 @@ export default class Example extends React.Component {
     return (
       <div className="startGameMenu">
         <Card>
-          <CardImg top width="50%" height="50%" src="backOfCard.jpg" alt="Card Image" />
+          <CardImg top width="10%" height="10%" src="backOfCard.jpg" alt="Card Image" />
           <CardBody>
             <CardTitle>Texas Holdem</CardTitle>
             <CardText>Start Game</CardText>

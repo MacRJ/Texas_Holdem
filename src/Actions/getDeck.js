@@ -40,3 +40,17 @@ export const getCards = (numberOfDecks) => (dispatch, getState) => {
     })
   }
 }
+
+export const debug = (dispatch, getState) => {
+  var deckId = null;
+  axios.get('https://deckofcardsapi.com/api/deck/' + deckId + '/draw/?count=' + '156')
+  .then((cards) => {
+    dispatch({type: "GET_CARDS_FULFILLED", payload: cards.data.cards})
+  })
+  .catch((error) => {
+    dispatch({
+      type: 'ERROR_GETTING_CARDS',
+      payload: error,
+    })
+  })
+}
