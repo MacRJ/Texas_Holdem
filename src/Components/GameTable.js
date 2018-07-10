@@ -7,7 +7,7 @@ import Player from './Player';
 class GameTable extends Component {
 
 render() {
-var {cardDeck, numberOfPlayers, players} = this.newMethod();
+var {cardDeck, numberOfPlayers, players} = this.props;
 
   var generateCardDeck = () => {
      return cardDeck.map((card, i) => {
@@ -16,9 +16,7 @@ var {cardDeck, numberOfPlayers, players} = this.newMethod();
   }
   var generatePlayers = () => {
     let playersVar = players[0];
-    console.log('PlayerVar', playersVar);
     for(var i = 0; i = numberOfPlayers; i++) {
-      console.log('i', i)
       return <Player key={i} playerName = {playersVar[i]} />
     }
   }
@@ -33,16 +31,10 @@ var {cardDeck, numberOfPlayers, players} = this.newMethod();
       </div>
     )
   }
-
-  newMethod() {
-    return this.props;
-  }
 }
 
 
 function mapStateToProps(state, props) {
-  console.log('GameTable State', state)
-  console.log('GameTable props', props)
   return {
     cardDeck : state.cards.results,
     players : state.players

@@ -15,7 +15,7 @@ constructor(props){
   this.state = {
     beginGame: false,
     numberOfPlayers : null,
-    debugMode : false
+    debugMode : true
     }
   }
 
@@ -36,7 +36,7 @@ constructor(props){
 
 
     var renderBeginGameChoice = () => {
-      if(this.state.beginGame === false || this.state.debugMode === false) {
+      if(this.state.beginGame === false && this.state.debugMode === false) {
         return <BeginGame
           selectNumberOfDecks= {selectNumberOfDecksFunction}
           selectNumberOfPlayers = {selectNumberOfPlayers}
@@ -44,6 +44,7 @@ constructor(props){
         
         } else if (this.state.debugMode === true) {
         this.props.debug();
+        return <GameTable numberOfPlayers = {4}/>
 
         } else {
         return <GameTable numberOfPlayers = {this.state.numberOfPlayers}/>
