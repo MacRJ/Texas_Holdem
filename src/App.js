@@ -1,10 +1,11 @@
+import React from 'react'
+import StartScreen from './components/StartScreen';
 
-
-function App() {
+const App = () => {
 
   return (
     <>
-      Texas Holdem
+      <StartScreen />
     </>
   )
 }
