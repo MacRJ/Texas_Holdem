@@ -1,7 +1,12 @@
 import React from 'react';
 
 const StartScreen = () => {
-    return <>Test</>
+    return (
+        <div data-testid = "start-screen" >
+            test
+        </div>
+        
+    )
 };
 
 
