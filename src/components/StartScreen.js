@@ -1,10 +1,12 @@
 import React from 'react';
 
-const StartScreen = () => {
+const StartScreen = ({gameStage}) => {
     return (
-        <div data-testid = "start-screen" >
-            test
-        </div>
+        <span className='startscreen' >
+            <button onClick={() => gameStage('deal')} style={{margin: 'auto', width: '50%', justifyContent: 'center'}}> 
+                Start
+            </button>
+        </span>
         
     )
 };

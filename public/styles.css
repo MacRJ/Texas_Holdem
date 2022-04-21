@@ -50,3 +50,53 @@
   #root, #__next {
     isolation: isolate;
   }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 100vh;
+    background-color: green;
+  }
+
+  .midtable {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    opacity: 0;
+  }
+
+  .carddeck {
+    flex: 1;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .flop {
+    flex: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .turn {
+    flex: 1;
+  }
+
+  .river {
+    flex: 1;
+  }
+
+  .startscreen {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
